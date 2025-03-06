@@ -22,4 +22,12 @@ Spring metrics:
 
 The metrics don't seem to be recorded when fluent-logging is used.
 
-Where's the bug?... Don't know yet!
+Where's the bug?
+
+- Logback doesn't actually produce any metrics of any kind.
+- Spring uses Micrometer to handle the metrics instrumentation.
+- Micrometer does Logback metrics instrumentation [here](https://github.com/micrometer-metrics/micrometer/blob/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder/logging/LogbackMetrics.java).
+  - Here is where the `logback.events` counters are actually defined.
+  - Micrometer implements a Logback [TurboFilter](https://logback.qos.ch/manual/filters.html#TurboFilter) to capture logs and increment counters.
+  - For performance reasons, they sometimes don't increment counters if they determine they don't need to.
+  - I suspect it is with this performance log where the problem lies.
