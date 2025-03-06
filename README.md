@@ -30,4 +30,4 @@ Where's the bug?
   - Here is where the `logback.events` counters are actually defined.
   - Micrometer implements a Logback [TurboFilter](https://logback.qos.ch/manual/filters.html#TurboFilter) to capture logs and increment counters.
   - For performance reasons, they sometimes don't increment counters if they determine they don't need to.
-  - I suspect it is with this performance log where the problem lies.
+  - I suspect it is with this performance logic where the problem lies.
