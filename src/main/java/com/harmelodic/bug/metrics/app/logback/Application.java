@@ -1,4 +1,4 @@
-package com.harmelodic.bugs.metrics.app.logback;
+package com.harmelodic.bug.metrics.app.logback;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

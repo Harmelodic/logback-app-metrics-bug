@@ -1,4 +1,4 @@
-package com.harmelodic.bugs.metrics.app.logback;
+package com.harmelodic.bug.metrics.app.logback;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

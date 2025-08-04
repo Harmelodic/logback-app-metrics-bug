@@ -1,4 +1,4 @@
-package com.harmelodic.bugs.metrics.app.logback;
+package com.harmelodic.bug.metrics.app.logback;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Tags;

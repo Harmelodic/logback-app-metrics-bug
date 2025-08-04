@@ -1,4 +1,4 @@
-package com.harmelodic.bugs.metrics.app.logback;
+package com.harmelodic.bug.metrics.app.logback;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
