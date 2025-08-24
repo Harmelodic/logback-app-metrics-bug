@@ -1,0 +1,17 @@
+# $schema: http://json.schemastore.org/github-workflow.json
+name: pull-request
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  # GitHub workflows
+  verify-github-workflows:
+    uses: harmelodic/workflows/.github/workflows/verify-github-workflows.yaml@541e2964bc269db532b73d02671363f55c63d2de
+
+  # Application
+  verify-java-project:
+    uses: harmelodic/workflows/.github/workflows/verify-java-project.yaml@541e2964bc269db532b73d02671363f55c63d2de
