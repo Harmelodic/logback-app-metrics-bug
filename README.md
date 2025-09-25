@@ -4,13 +4,6 @@ An example Spring Boot MVC Web Application to showcase an issue with Logback and
 
 Check the tests, to see how the `logback.events` metric bug is manifested.
 
-Spring metrics:
-
-- http://localhost:8080/actuator/metrics/logback.events?tag=level:warn
-- Notice that the metric is 10.0, correct.
-- http://localhost:8080/actuator/metrics/logback.events?tag=level:error
-- Notice that the metric is 0.0, incorrect.
-
 The metrics don't seem to be recorded when _**fluent-logging**_ is used.
 
 Where's the bug?
