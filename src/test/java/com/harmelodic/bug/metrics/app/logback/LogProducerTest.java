@@ -25,14 +25,11 @@ class LogProducerTest {
         assertEquals(10, meterRegistry.counter("logback.events", Tags.of("level", "warn")).count());
     }
 
-    /// Ideally, this test should fail.
-    /// Ideally, the metric would be 10.0
-    ///
-    /// I hope this test fails at some point.
+    /// This test passes! Bug fixed since 3.5.8 / 4.0.0!
     @Test
     @DirtiesContext
     void produceFluentLogs() {
         logProducer.produceFluentLogs(10);
-        assertEquals(0, meterRegistry.counter("logback.events", Tags.of("level", "warn")).count());
+        assertEquals(10, meterRegistry.counter("logback.events", Tags.of("level", "warn")).count());
     }
 }
