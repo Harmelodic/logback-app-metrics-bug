@@ -2,6 +2,7 @@ package com.harmelodic.bug.metrics.app.logback;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Tags;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +23,7 @@ class LogProducerTest {
     @DirtiesContext
     void produceRegularLogs() {
         logProducer.produceRegularLogs(10);
-        assertEquals(10, meterRegistry.counter("logback.events", Tags.of("level", "warn")).count());
+        assertEquals(10, meterRegistry.get("logback.events").tag("level", "warn").functionCounter().count());
     }
 
     /// This test passes! Bug fixed since 3.5.8 / 4.0.0!
@@ -30,6 +31,6 @@ class LogProducerTest {
     @DirtiesContext
     void produceFluentLogs() {
         logProducer.produceFluentLogs(10);
-        assertEquals(10, meterRegistry.counter("logback.events", Tags.of("level", "warn")).count());
+        assertEquals(10, meterRegistry.get("logback.events").tag("level", "warn").functionCounter().count());
     }
 }
